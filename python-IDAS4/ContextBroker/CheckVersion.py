@@ -40,8 +40,7 @@ NODE_ID=config.get('local', 'host_id')
 f.close()
 
 CB_URL = "http://"+CB_HOST+":"+CB_PORT
-PAYLOAD = {'some' : 'data'}
-HEADERS = {'content-type': 'application/json' , 'X-Auth-Token' : TOKEN}
+HEADERS = {'X-Auth-Token' : TOKEN}
 HEADERS_SHOW = {'content-type': 'application/json', 'accept': 'application/json' , 'X-Auth-Token' : TOKEN_SHOW}
 
 URL = CB_URL + '/version'
@@ -49,7 +48,7 @@ URL = CB_URL + '/version'
 print "* Asking to "+URL
 print "* Headers: "+str(HEADERS_SHOW)
 print "..."
-r = requests.get(URL, data=json.dumps(PAYLOAD), headers=HEADERS)
+r = requests.get(URL, headers=HEADERS)
 print
 print "* Status Code: "+str(r.status_code)
 print "* Response: "
